@@ -21,11 +21,6 @@ public class SaleController {
     @Autowired
     SaleSavice saleSavice;
 
-    public Page<Sale> listAllSales(@PageableDefault(sort = "id", direction = Sort.Direction.ASC, page = 0, size = 10)
-                                   Pageable paginacao) {
-        return saleSavice.findSales(paginacao);
-    }
-
     @GetMapping
     public Page<Sale> listSalesBetweenDate(@RequestParam(value = "minDate", defaultValue = "") String minDate,
                                            @RequestParam(value = "maxDate", defaultValue = "") String maxDate,
